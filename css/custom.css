@@ -24,7 +24,7 @@ header {
         text-align: left;
     }
 }
-.borrar-course {
+.delete-course {
     background-color: red;
     border-radius: 50%;
     padding: 5px 10px;
@@ -134,7 +134,7 @@ ul {
     background-image: url(../img/icon3.png);
 }
 
-#course-list .row {
+#courses-list .row {
     margin-bottom:20px;
 }
 .add-cart {
