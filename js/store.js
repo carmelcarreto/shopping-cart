@@ -47,10 +47,18 @@ function cartHTML() {
     
     //Walk the cart and generate the HTML
     cartArticles.forEach( course => {
+        const {image, title, price, amount, id} = course;
+
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
-                ${course.title}
+                <img src="${image}" width="100">
+            </td>
+            <td>${title}</td>
+            <td>${price}</td>
+            <td>${amount}</td>
+            <td>
+                <a href="#" class="delete-course" data-id="${id}"> X </a>
             </td>
         `;
 
