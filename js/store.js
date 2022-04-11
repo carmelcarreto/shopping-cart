@@ -8,7 +8,11 @@ const cart = document.querySelector('#cart'),
 
     loadEventListeners();
     function loadEventListeners(){
+        //When you add a course by pressing Add to Cart
         coursesList.addEventListener('click', addCourse);
+
+        //Remove courses from cart
+        cart.addEventListener('click', deleteCourse);
     }
 
 //Functions
@@ -18,6 +22,18 @@ function addCourse(e){
     if(e.target.classList.contains('add-cart') ) {
         const selectedCourse = e.target.parentElement.parentElement;
         readCourseData(selectedCourse);
+    }
+}
+//Delete a course from the cart
+function deleteCourse(e){
+    console.log(e.target.classList);
+    if(e.target.classList.contains('delete-course')){
+        const courseId = e.target.getAttribute('data-id');
+        
+        //Remove from cartArticles array by data-id
+        cartArticles = cartArticles.filter(course => course.id !== courseId);
+        
+        cartHTML(); //Iterate over the cart and display its HTML
     }
 }
 
