@@ -13,6 +13,13 @@ const cart = document.querySelector('#cart'),
 
         //Remove courses from cart
         cart.addEventListener('click', deleteCourse);
+
+        //Empty cart
+        emptyCartBtn.addEventListener('click', () => {
+            cartArticles= [];//Reset te fix
+            
+            clearHTML(); //Remove all HTML
+        })
     }
 
 //Functions
