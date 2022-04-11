@@ -31,9 +31,25 @@ function readCourseData(course){
         id: course.querySelector('a').getAttribute('data-id'),
         amount: 1
     }
-    //Add elements to Cart
-    cartArticles = [...cartArticles, courseInformation];
+
+    //check if an item already exists in the cart
+    const exist = cartArticles.some(course => course.id === courseInformation.id);
+    if(exist){
+        //update amount
+        const courses = cartArticles.map( course => {
+            if(course.id === courseInformation.id){
+                course.amount++;
+                return course;// Return the updated object
+            }else{
+                return course; //Returns objects that are not duplicates 
+            }
+        });
+        cartArticles = [...courses];
+    }else{
+        //Add elements to Cart
+        cartArticles = [...cartArticles, courseInformation];
     
+    }
     console.log(cartArticles);
 
     cartHTML();
